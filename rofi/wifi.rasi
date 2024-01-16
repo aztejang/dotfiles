@@ -1,0 +1,15 @@
+configuration {
+  show-icons: false;
+}
+
+listview {
+	lines: 6;
+}
+
+mainbox {
+  children: [listview];
+}
+
+window {
+  width: 20%;
+}
