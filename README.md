@@ -1,5 +1,4 @@
-
-![akdixnly6p9c1B](https://github.com/aztejang/dotfiles/assets/12063930/d9a54a63-247a-435a-8d62-4ff345c88153)
+![akdixnly6p9c1B](https://github.com/aztejang/dotfiles/assets/12063930/e89b3c5a-16d5-40bd-9ee4-b7570ab2331a)
 
 - install i3
 - install feh
