@@ -2,8 +2,7 @@ configuration {
   display-drun: "";
   display-window: "";
   drun-display-format: "{name}";
-  font: "NotoMono 11";
-  
+  font: "NotoMono 12";  
   // enabling the icons
   show-icons: true;
   icon-theme: "Papirus";

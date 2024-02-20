@@ -4,10 +4,12 @@
 get_wifi_list() {
     nmcli --fields "IN-USE,SECURITY,SSID" device wifi list | \
     sed 1d | \
-    sed 's/  */ /g' | \
     sed -E 's/WPA*.?\S/ /g' | \
-    sed 's/--/ /g' | \
-    sed '/^\*/ {s/^\*//; s/$/ /}'
+    awk -F'        ' 'BEGIN {OFS=FS} {if ($2 == "--") $2 = ""; print $0}' | \
+    sed '/^\*/ {s/^\*\s*/ /; s/^\*\s*/ /}' | \
+    sed 's/   */  /g' | \
+    sed 's/^ *//' | \
+    sed 's/ \+//g'
 }
 
 # Show loading message
