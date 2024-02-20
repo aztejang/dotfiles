@@ -5,7 +5,7 @@
 - install compton
 - install polybar
 - install rofi
-- install FontAwesome (6 is used in the dotfiles currently)
+- install a Nerdfont
 - install ranger
 - install spt (create spotify daemon to run it, there's a guide online by Graham Helton showing how)
 
