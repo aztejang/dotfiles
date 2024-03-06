@@ -26,7 +26,7 @@ for_window [class="^.*"] border pixel 1
 
 # Gaps
 gaps inner 10
-gaps outer 15
+gaps outer 5
 
 # Borders
 # class                 border  backgr. text    indicator child_border
@@ -57,13 +57,14 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 00000000 --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 00000000 --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -s blur
 
 # Lock screen
-bindsym $mod+Shift+l exec i3lock -c 00000000 --nofork
+# bindsym $mod+Shift+l exec i3lock -c 00000000 --nofork
+bindsym $mod+Shift+l exec betterlockscreen -l blur
 
 # Power menu
-#bindsym $mod+Shift+p exec ~/.config/rofi/scripts/power-menu.sh
 bindsym $mod+Shift+e exec ~/.config/rofi/scripts/power-menu.sh
 
 # Wifi menu
@@ -89,8 +90,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Set brightness with multimedia keys
-# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

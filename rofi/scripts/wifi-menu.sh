@@ -9,7 +9,9 @@ get_wifi_list() {
     sed '/^\*/ {s/^\*\s*/ /; s/^\*\s*/ /}' | \
     sed 's/   */  /g' | \
     sed 's/^ *//' | \
-    sed 's/ \+//g'
+    sed 's/ \+//g' | \
+    sed 's/ \s*/ /g' | \
+    sed 's/ \s*/ /g'
 }
 
 # Show loading message
@@ -23,7 +25,7 @@ connected=$(nmcli -fields WIFI g)
 if [[ "$connected" =~ "enabled" ]]; then
     toggle="  Disable Wi-Fi"
 elif [[ "$connected" =~ "disabled" ]]; then
-    toggle="  Enable Wi-Fi"
+    toggle="󰖩  Enable Wi-Fi"
 fi
 
 # Call rofi with wifi list
@@ -31,16 +33,18 @@ chosen_network=$(echo -e "$toggle\n$wifi_list" | uniq -u | rofi -dmenu -i -selec
 
 # Extract chosen SSID
 chosen_id=$(echo "$chosen_network" | awk '{print $NF}')
+#handles spaces in SSID better?:
+#chosen_id=$(echo "$chosen_network" | sed 's/ [].*$//')
 
 if [ -z "$chosen_network" ]; then
     exit
-elif [ "$chosen_network" = "  Enable Wi-Fi" ]; then
+elif [ "$chosen_network" = "󰖩  Enable Wi-Fi" ]; then
     nmcli radio wifi on
 elif [ "$chosen_network" = "  Disable Wi-Fi" ]; then
     nmcli radio wifi off
 else
-    # Check if SSID is a saved connection
-    saved_connection=$(nmcli connection show --active | grep "$chosen_id")
+    # TODO: refactor this. --active not needed, should get list of saved connectons with just nmcli connection show. items in that list shouldnt prompt password
+    saved_connection=$(nmcli connection show | grep "$chosen_id")
 
     # Connected message. TODO: add disconnected
     display_message_and_kill() {
