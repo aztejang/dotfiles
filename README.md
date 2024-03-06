@@ -7,8 +7,7 @@
 - install rofi
 - install a Nerdfont
 - install ranger
+- install betterlockscreen
 - install spt (create spotify daemon to run it, there's a guide online by Graham Helton showing how)
 
-Thanks to Graham Helton, Eric Murphy and everyone else who advertently or inadvertently helped guide me through this :) 
-
-
+Thanks to Graham Helton, Eric Murphy and everyone else who advertently or inadvertently helped guide me through this :)
