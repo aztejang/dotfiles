@@ -111,6 +111,9 @@ bindsym $mod+f exec i3-sensible-terminal -e "ranger"
 #start spotify/spt
 bindsym $mod+s exec i3-sensible-terminal -e "spt"
 
+#toggle sv/en kb-layout with right alt and shift
+exec_always --no-startup-id i3-sensible-terminal -e "setxkbmap us,se -option 'lv3:ralt_alt,grp:alt_shift_toggle'"
+
 # kill focused window
 bindsym $mod+Shift+q kill
 #bindsym $mod+k kill
