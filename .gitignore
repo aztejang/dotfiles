@@ -19,6 +19,7 @@ spotifyd/
 tiling-assistant
 update-notifier/
 vlc/
+systemd/
 
 .gsd-keyboard.settings-ported
 gnome-initial-setup-done
